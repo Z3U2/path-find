@@ -11,7 +11,7 @@ export class LayoutComponent extends React.Component<IGrid, {}> {
     return (
       <div className="grid-wrapper">
         <MenuComponent />
-        <GridComponent />
+        <GridComponent {...this.props} />
       </div>
     );
   }

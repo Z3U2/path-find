@@ -1,0 +1,59 @@
+.square {
+    height: 40px;
+    width: 40px;
+    background-color: #b19cd9;
+}
+
+.filled-square {
+    height: 40px;
+    width: 40px;
+    background-color: rgb(104, 076, 150);
+}
+
+.grid {
+    position: relative;
+}
+
+.grid>table {
+    margin:auto;
+}
+
+.arrow-button {
+    position: absolute;
+    width:40px;
+    height:40px;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+.arrow-button>i {
+    display:block;
+    width:24px;
+    height:24px;
+}
+
+.arrow-button-up {
+    top:0px;
+    left:50%;
+    transform: translateX(-50%);
+}
+.arrow-button-down {
+    bottom:0px;
+    left:50%;
+    transform: translateX(-50%);
+}
+.arrow-button-left {
+    left:0px;
+    top:50%;
+    transform: translateY(-50%);
+}
+.arrow-button-right {
+    right:0px;
+    top:50%;
+    transform: translateY(-50%);
+}
