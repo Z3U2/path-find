@@ -4,13 +4,15 @@ import Direction from "./Direction";
 
 export default class Grid {
 
-    private gridArray : Array<Array<ISquareDetails>>;
+    readonly gridArray : Array<Array<ISquareDetails>>;
     readonly width: number;
     readonly height: number;
+    readonly name: string;
 
-    constructor(width:number, height: number) {
+    constructor(width:number, height: number, name: string) {
         this.width = width;
         this.height = height;
+        this.name = name;
         this.gridArray = [];
         for (let i = 0; i<height; i++) {
             this.gridArray.push([]);
@@ -18,6 +20,10 @@ export default class Grid {
                 this.gridArray[i].push(null);
             }
         }
+    }
+
+    getDetails(row:number, col:number):ISquareDetails {
+        return this.gridArray[row][col];
     }
 
     add(square: ISquare) {
