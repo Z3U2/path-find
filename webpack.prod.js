@@ -27,5 +27,5 @@ module.exports = {
         loader: "source-map-loader"
       }
     ]
-  },
+  }
 };
