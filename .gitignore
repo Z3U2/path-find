@@ -62,3 +62,7 @@ typings/
 # dotenv environment variables file
 .env
 .env.test
+
+# vscode conf
+.vscode/
+
