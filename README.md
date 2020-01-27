@@ -65,4 +65,5 @@ Once setup is finished you can run the server with :
 - [ ] Add a square via graphical interface
 - [ ] Show shortest path on grid
 - [ ] Generate index.html for prod build
+- [ ] Responsiveness
 
