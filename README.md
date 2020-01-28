@@ -6,6 +6,9 @@ Web App to find shortest path with least turns in a n*m grid
 * [Setup](#setup-)
     * [Packages](#packages)
 * [Directory Structure](#directory-structure)
+    * [Domain](#domain)
+    * [Services](#Services)
+    * [Components](#components)
 * [Components Tree](#components-tree)
 * [Run](#run-)
 * [Test](#test-)
@@ -21,6 +24,25 @@ all source code is in `src` directory
 - `src/domain` business logic classes, uncoupled from React
 - `src/components` React components, separated in directories for simplicity
 - `src/services` Services needed for the application
+
+### Domain
+
+- `Grid` class at the center of this program : represents a n*m grid, should calculate
+shortest path with least turns
+- `ISquare` and `ISquareDetails` two interfaces representing respectively a square in the grid and a data payload associated with the square
+- `NoDetailSquare` implements the two interfaces above, represents a square with no data payload
+
+### Services
+
+- `GridService` interface that represent a generic grid "persistence" service, in the same file there's a `HardCodeGridService` which is an implementation with hardcoded data (prototyping purpose)
+
+### Components
+
+- `CreatorComponent` : Responsible for Grid initialization, can load grid from `CreatorList` or Initialize a new one from `CreatorForm`
+- `LayoutComponent` : Application main page general layout
+- `MenuComponent` : Shows info, can also Drag a new Square into the Grid
+- `GridComponent` : Renders a grid of `Square`s, handles grid exploration as well.
+
 
 ## Components Tree
 
@@ -62,8 +84,9 @@ Once setup is finished you can run the server with :
 - [ ] Write tests 
 - [ ] Inline documentation
 - [ ] Implement shortest path algorithm
-- [ ] Add a square via graphical interface
+- [x] Add a square via graphical interface
 - [ ] Show shortest path on grid
 - [ ] Generate index.html for prod build
 - [ ] Responsiveness
+- [ ] Naming consistency
 
