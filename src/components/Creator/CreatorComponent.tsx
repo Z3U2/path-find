@@ -2,7 +2,7 @@ import * as React from "react";
 import "./style.css"
 
 import Grid from "../../domain/Grid";
-import {IGrid} from "../Start/StartComponent";
+import {IGridState} from "../Start/StartComponent";
 import {HardCodeGridService, GridService} from "../../services/GridService"
 import { CreatorForm } from "./CreatorForm";
 import { CreatorList } from "./CreatorList";
@@ -12,7 +12,7 @@ interface ICreatorState {
     height: number;
 }
 
-export class CreatorComponent extends React.Component<IGrid, {}> {
+export class CreatorComponent extends React.Component<IGridState, {}> {
 
          render() {
            return (

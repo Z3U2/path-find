@@ -3,7 +3,7 @@ import "./style.css";
 
 
 
-import { IGrid } from "../Start/StartComponent";
+import { IGridState } from "../Start/StartComponent";
 import Grid from "../../domain/Grid";
 import ISquareDetails from "../../domain/ISquareDetails";
 import {Square} from "./Square"
@@ -16,9 +16,9 @@ interface IGridComponentState {
   colStart:number;
 } 
 
-export class GridComponent extends React.Component<IGrid, IGridComponentState> {
+export class GridComponent extends React.Component<IGridState, IGridComponentState> {
          grid: Grid;
-         constructor(props: IGrid) {
+  constructor(props: IGridState) {
            super(props);
            this.state = {
              grid: this.props.grid,

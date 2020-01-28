@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import Grid from "../../domain/Grid";
-import { IGrid } from "../Start/StartComponent";
+import { IGridState } from "../Start/StartComponent";
 import { HardCodeGridService, GridService } from "../../services/GridService";
 
 interface ICreatorState {
@@ -10,10 +10,10 @@ interface ICreatorState {
   name : string;
 }
 
-export class CreatorForm extends React.Component<IGrid, ICreatorState> {
+export class CreatorForm extends React.Component<IGridState, ICreatorState> {
   private _gridService: GridService = new HardCodeGridService();
 
-  constructor(props: IGrid) {
+  constructor(props: IGridState) {
     super(props);
     this.state = {
       height: 1000,

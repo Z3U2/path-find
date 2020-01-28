@@ -1,13 +1,13 @@
 import * as React from "react";
 import { GridService, HardCodeGridService } from "../../services/GridService";
 import Grid from "../../domain/Grid";
-import { IGrid } from "../Start/StartComponent";
+import { IGridState } from "../Start/StartComponent";
 
-export class CreatorList extends React.Component<IGrid, {}> {
+export class CreatorList extends React.Component<IGridState, {}> {
          private _gridService: GridService = new HardCodeGridService();
 
          grids: Grid[];
-         constructor(props: IGrid) {
+         constructor(props: IGridState) {
            super(props);
            this.grids = this._gridService.getGrids();
            this.setGrid = this.props.setGrid;

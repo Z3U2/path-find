@@ -4,7 +4,7 @@ import { LayoutComponent } from "../Layout/LayoutComponent";
 import { CreatorComponent } from "../Creator/CreatorComponent"
 import Grid from "../../domain/Grid"
 
-export interface IGrid {
+export interface IGridState {
     grid: Grid;
     setGrid(grid: Grid): void;
 }
