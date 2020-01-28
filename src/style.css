@@ -1,3 +1,16 @@
 body {
     margin: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: lavenderblush;
+}
+
+#path-app {
+    height: 100%;
+    width: 100%;
+}
+
+#path-app > div {
+    height: 100%;
+    width: 100%;
 }
