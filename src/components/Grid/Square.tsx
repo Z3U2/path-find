@@ -1,19 +1,69 @@
 import * as React from "react";
-import { IGrid } from "../Start/StartComponent";
+import { useDrop } from "react-dnd";
+
+import { IGridState } from "../Start/StartComponent";
 import ISquareDetails from "../../domain/ISquareDetails";
+import NoDetailSquare from "../../domain/NoDetailSquare"
+import Grid from "../../domain/Grid";
+import ISquare from "../../domain/ISquare"
 
-interface IDetails {
-    details : ISquareDetails
+
+
+
+
+interface SquareProps {
+  accept: string[];
+  lastDroppedItem?: any;
+  details : ISquareDetails;
+  row:number;
+  col:number;
+  grid:Grid;
+  setGrid(grid:Grid): void;
 }
 
-export class Square extends React.Component<IDetails, {}> {
-
-    details: ISquareDetails;
-    constructor(props:IDetails) {
-        super(props);
-        this.details= this.props.details
+const Square: React.FC<SquareProps> = ({
+  accept,
+  details,
+  row,
+  col,
+  grid,
+  setGrid
+}) => {
+  const onDrop = (item: any) => {
+    let square: ISquare = new NoDetailSquare(row, col);
+    try {
+      grid.add(square);
+      setGrid(grid);
+    } catch (e) {
+      console.error((e as Error).message);
     }
-  render() {
-    return <div className={`${this.details ? "filled-square" : "square"}`}></div>;
+  };
+
+  const [{ isOver, canDrop }, drop] = useDrop({
+    accept,
+    drop: onDrop,
+    collect: monitor => ({
+      isOver: monitor.isOver(),
+      canDrop: monitor.canDrop() && (details == null)
+    })
+  });
+
+  const isActive = isOver && canDrop;
+  let backgroundColor = details ? "rgb(104, 076, 150)" : "#b19cd9";
+  if (isActive) {
+    backgroundColor = "darkgreen";
+  } else if (canDrop) {
+    backgroundColor = "darkkhaki";
   }
-}
+
+  return (
+    <div
+      className="square"
+      ref={drop}
+      style={{ backgroundColor }}
+    ></div>
+  );
+};
+
+export default Square;
+
