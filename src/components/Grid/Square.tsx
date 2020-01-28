@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useDrop } from "react-dnd";
 
-import { IGridState } from "../Start/StartComponent";
+import { IGridState } from "../Start/IGridState";
 import ISquareDetails from "../../domain/ISquareDetails";
 import NoDetailSquare from "../../domain/NoDetailSquare"
 import Grid from "../../domain/Grid";

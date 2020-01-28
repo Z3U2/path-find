@@ -2,7 +2,7 @@ import * as React from "react";
 import "./style.css"
 
 import Grid from "../../domain/Grid";
-import {IGridState} from "../Start/StartComponent";
+import { IGridState } from "../Start/IGridState";
 import {HardCodeGridService, GridService} from "../../services/GridService"
 import { CreatorForm } from "./CreatorForm";
 import { CreatorList } from "./CreatorList";

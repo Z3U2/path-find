@@ -3,7 +3,7 @@ import "./style.css";
 
 
 
-import { IGridState } from "../Start/StartComponent";
+import { IGridState } from "../Start/IGridState";
 import Grid from "../../domain/Grid";
 import ISquareDetails from "../../domain/ISquareDetails";
 import Square from "./Square"
@@ -159,14 +159,14 @@ export class GridComponent extends React.Component<IGridState, IGridComponentSta
                                  <td
                                    key={`${row}-${col}`}
                                  >
-                                 <Square
+                                   <Square
                                      accept={[ItemTypes.SQUARE]}
                                      details={elt}
                                      {...{row,col}}
                                      grid={this.state.grid}
                                      setGrid={this.setGrid}
-                                 />
-                               </td>
+                                   />
+                                 </td>
                                );
                              })}
                          </tr>

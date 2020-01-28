@@ -4,7 +4,7 @@ import "./style.css"
 
 import DraggableSquare from "./DraggableSquare";
 import ItemTypes from "./ItemTypes";
-import { IGridState } from "../Start/StartComponent";
+import { IGridState } from "../Start/IGridState";
 
 export class MenuComponent extends React.Component<IGridState, {}> {
   render() {

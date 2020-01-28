@@ -4,7 +4,7 @@ import {DndProvider} from "react-dnd";
 import Backend from "react-dnd-html5-backend";
 
 import { GridComponent } from "../Grid/GridComponent";
-import { IGridState } from "../Start/StartComponent";
+import { IGridState } from "../Start/IGridState";
 import { MenuComponent } from "../Menu/MenuComponent";
 
 export class LayoutComponent extends React.Component<IGridState, {}> {

@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import Grid from "../../domain/Grid";
-import { IGridState } from "../Start/StartComponent";
+import { IGridState } from "../Start/IGridState";
 import { HardCodeGridService, GridService } from "../../services/GridService";
 
 interface ICreatorState {
