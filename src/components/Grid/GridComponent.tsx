@@ -89,7 +89,7 @@ export class GridComponent extends React.Component<IGridState, IGridComponentSta
 
          updateWindowDimensions() {
            let width = window.innerWidth;
-           let height = window.innerHeight;
+           let height = window.innerHeight - 50;
            let rows = height / 45;
            let cols = width / 45;
            this.setState({
