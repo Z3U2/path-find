@@ -6,7 +6,8 @@ import "./style.css";
 import { IGridState } from "../Start/StartComponent";
 import Grid from "../../domain/Grid";
 import ISquareDetails from "../../domain/ISquareDetails";
-import {Square} from "./Square"
+import Square from "./Square"
+import ItemTypes from "../Menu/ItemTypes";
 
 interface IGridComponentState {
   grid: Grid;
@@ -17,7 +18,6 @@ interface IGridComponentState {
 } 
 
 export class GridComponent extends React.Component<IGridState, IGridComponentState> {
-         grid: Grid;
   constructor(props: IGridState) {
            super(props);
            this.state = {
@@ -27,27 +27,47 @@ export class GridComponent extends React.Component<IGridState, IGridComponentSta
              rowStart: 0,
              colStart:0
            };
-           this.grid = this.props.grid;
            this.setGrid = this.props.setGrid;
            this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+           this.handleClick = this.handleClick.bind(this);
          }
 
          handleClick(e: React.MouseEvent<HTMLDivElement,MouseEvent>):void {
             let direction = e.currentTarget.getAttribute('data-direction');
             let colStart = this.state.colStart;
             let cols = this.state.cols;
+            let rowStart = this.state.rowStart;
+            let rows = this.state.rows;
             switch (direction) {
               case "up":
+                rowStart -= 1;
+                rowStart = rowStart < 0 ? 0 : rowStart;
+                this.setState({
+                  rowStart
+                });
+                break;
+
+              case "down":
+                rowStart += 1;
+                rowStart =
+                  rowStart + rows > this.state.grid.height + 1 ? rowStart - 1 : rowStart;
+                this.setState({
+                  rowStart
+                });
+                break;
+
+              case "left":
                 colStart -= 1;
-                colStart = colStart < 0 ? 0 : colStart;
+                colStart = colStart = colStart < 0 ? 0 : colStart;
                 this.setState({
                   colStart
                 });
                 break;
 
-              case "down":
+              case "right":
                 colStart += 1;
-                colStart = colStart + cols > this.grid.height ? 0 : colStart;
+                colStart =
+                  colStart + cols > this.state.grid.width + 1 ? colStart - 1 : colStart;
                 this.setState({
                   colStart
                 });
@@ -97,7 +117,7 @@ export class GridComponent extends React.Component<IGridState, IGridComponentSta
                      <i className="material-icons">keyboard_arrow_up</i>
                    </div>
                  )}
-                 {rowEnd < this.grid.height && (
+                 {rowEnd < this.state.grid.height && (
                    <div
                      onClick={this.handleClick}
                      className="arrow-button arrow-button-down"
@@ -115,7 +135,7 @@ export class GridComponent extends React.Component<IGridState, IGridComponentSta
                      <i className="material-icons">keyboard_arrow_left</i>
                    </div>
                  )}
-                 {colEnd < this.grid.width && (
+                 {colEnd < this.state.grid.width && (
                    <div
                      onClick={this.handleClick}
                      className="arrow-button arrow-button-right"
@@ -128,20 +148,27 @@ export class GridComponent extends React.Component<IGridState, IGridComponentSta
                    {this.state.grid.gridArray
                      .slice(rowStart, rowEnd)
                      .map((arr: ISquareDetails[], rowId: number) => {
+                       let row = rowStart + rowId;
                        return (
-                         <tr key={rowId}>
+                         <tr key={row}>
                            {arr
                              .slice(colStart, colEnd)
-                             .map((elt: ISquareDetails, colId: number) => (
-                               <td key={`${rowId}-${colId}`}>
+                             .map((elt: ISquareDetails, colId: number) => {
+                               let col = colStart + colId;
+                               return (
+                                 <td
+                                   key={`${row}-${col}`}
+                                 >
                                  <Square
-                                   details={this.grid.getDetails(
-                                     rowStart + rowId,
-                                     colStart + colId
-                                   )}
+                                     accept={[ItemTypes.SQUARE]}
+                                     details={elt}
+                                     {...{row,col}}
+                                     grid={this.state.grid}
+                                     setGrid={this.setGrid}
                                  />
                                </td>
-                             ))}
+                               );
+                             })}
                          </tr>
                        );
                      })}
