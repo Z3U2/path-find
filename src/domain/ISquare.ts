@@ -1,7 +1,7 @@
 import ISquareDetails from "./ISquareDetails";
 
 export default interface ISquare {
-    x : number;
-    y : number;
+    row : number;
+    col : number;
     details : ISquareDetails; 
 }

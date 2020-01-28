@@ -27,13 +27,12 @@ export default class Grid {
     }
 
     add(square: ISquare) {
-        let x: number = square.x;
-        let y: number = square.y;
-        if (this.gridArray[y][x]!= null) {
-            console.log(this.gridArray[y][x])
+        let row: number = square.row;
+        let col: number = square.col;
+        if (this.gridArray[row][col]!= null) {
             throw new Error("There's already a square in place!")
         }
-        this.gridArray[y][x] = square.details;
+        this.gridArray[row][col] = square.details;
     }
 
     findShortestPath(square1 : ISquare, square2 : ISquare): Array<Direction>  {

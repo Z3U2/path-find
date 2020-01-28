@@ -4,20 +4,20 @@ import ISquareDetails from "./ISquareDetails";
 class NoDetail implements ISquareDetails {}
 
 export default class NormalSquare implements ISquare {
-  private _x: number;
-  public get x(): number {
-    return this._x;
+  private _col: number;
+  public get col(): number {
+    return this._col;
   }
-  public set x(val: number) {
-    this._x = val;
+  public set col(val: number) {
+    this._col = val;
   }
 
-  private _y: number;
-  public get y(): number {
-    return this._y;
+  private _row: number;
+  public get row(): number {
+    return this._row;
   }
-  public set y(val: number) {
-    this._y = val;
+  public set row(val: number) {
+    this._row = val;
   }
 
   private _details: NoDetail;
@@ -28,9 +28,9 @@ export default class NormalSquare implements ISquare {
     this._details = val;
   }
 
-  constructor(x: number, y: number) {
-    this._x = x;
-    this._y = y;
+  constructor(row: number, col: number) {
+    this._row = row;
+    this._col = col;
     this._details = new NoDetail();
   }
 }
