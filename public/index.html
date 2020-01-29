@@ -10,12 +10,14 @@
 <body>
     <div id="path-app"></div>
     
-    <!-- Dependencies -->
-    <script src="react/umd/react.development.js"></script>
-    <script src="react-dom/umd/react-dom.development.js"></script>
+    <% if (webpackConfig.mode == "development") { %>
 
-    <!-- Main -->
-    <script src="./main.js"></script>
+        <!-- Dependencies -->
+        <script src="react/umd/react.development.js"></script>
+        <script src="react-dom/umd/react-dom.development.js"></script>
+
+    <% } %> 
+    
 </body>
 
 </html>

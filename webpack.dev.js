@@ -1,3 +1,5 @@
+var HtmlWebpackPlugin = require("html-webpack-plugin");
+
 module.exports = {
   mode: "development",
 
@@ -5,13 +7,13 @@ module.exports = {
   devtool: "source-map",
 
   resolve: {
-    // Add '.ts' as resolvable extensions.
+    // Add '.ts' and '.tsx' as resolvable extensions.
     extensions: [".js", ".ts", ".tsx"]
   },
 
   // This tells webpack-dev-server to serve the files from the dist directory on localhost:8080
   devServer: {
-    contentBase: ["./public", "./node_modules"]
+    contentBase: ["./dist", "./node_modules"]
   },
 
   module: {
@@ -46,5 +48,13 @@ module.exports = {
   externals: {
     react: "React",
     "react-dom": "ReactDOM"
-  }
+  },
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      hash: true,
+      template: "./public/index.html",
+      filename: "./index.html" //relative to root of the application
+    })
+  ]
 };
