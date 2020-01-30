@@ -3,7 +3,7 @@ import ISquareDetails from "./ISquareDetails";
 
 class NoDetail implements ISquareDetails {}
 
-export default class NormalSquare implements ISquare {
+export default class NoDetailSquare implements ISquare {
   private _col: number;
   public get col(): number {
     return this._col;
