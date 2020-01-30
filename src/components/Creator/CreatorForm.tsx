@@ -18,7 +18,7 @@ export class CreatorForm extends React.Component<IGridState, ICreatorState> {
     this.state = {
       height: 1000,
       width: 1000,
-      name: ""
+      name: "My Grid"
     };
     this.initGrid = this.initGrid.bind(this);
     this.handleChange = this.handleChange.bind(this);
