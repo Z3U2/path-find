@@ -31,6 +31,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       hash: true,
       template: "./public/index.html",
+      favicon: "./public/favicon.ico",
       filename: "./index.html" //relative to root of the application
     })
   ]
