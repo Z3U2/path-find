@@ -86,7 +86,8 @@ Once setup is finished you can run the server with :
 - [ ] Implement shortest path algorithm
 - [x] Add a square via graphical interface
 - [ ] Show shortest path on grid
-- [ ] Generate index.html for prod build
-- [ ] Responsiveness
+- [x] Generate index.html for prod build **and dev aswell**
+- [x] Responsiveness
 - [ ] Naming consistency
+- [ ] Add a real Grid persistence service
 
