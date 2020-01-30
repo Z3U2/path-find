@@ -17,12 +17,18 @@ export class CreatorComponent extends React.Component<IGridState, {}> {
          render() {
            return (
              <div className="creator-background">
-               <div className="creator-title-wrapper"></div>
-               <CreatorList {...this.props} />
-               <CreatorForm
-                 grid={this.props.grid}
-                 setGrid={this.props.setGrid}
-               />
+               <div className="creator-title-wrapper">
+                 <h1>
+                   path<span>://</span>
+                 </h1>
+               </div>
+               <div className="creator-content-wrapper">
+                 <CreatorList {...this.props} />
+                 <CreatorForm
+                   grid={this.props.grid}
+                   setGrid={this.props.setGrid}
+                 />
+               </div>
              </div>
            );
          }

@@ -1,9 +1,33 @@
 .creator-background {
-    height:100vh;
-    width:100vw;
+    min-height:100vh;
+    min-width:100vw;
     background-color: #b19cd9; 
     position:relative;
     display: flex;   
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.creator-title-wrapper {
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    font-size: 40px;
+}
+
+.creator-title-wrapper>h1>span {
+    color: rgb(104, 076, 150);
+}
+
+@media screen and (max-width:768px) {
+    .creator-title-wrapper {
+        font-size: 20px;
+    }
+}
+
+.creator-content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
 }
@@ -57,10 +81,42 @@
    color: white;
 }
 
+@media screen and (max-width:768px) {
+    .creator-form-wrapper {
+        width: 100%;
+        padding: 50px 30px;
+    }
+    .form-input {
+        width:100%;
+        height: 50px;
+    }
+
+    .form-submit {
+        width:100%;
+        height: 50px;
+    }
+}
+
 .creator-list {
     background: rgb(104, 076, 150);
     height: 300px;
     border-right: solid 1px white;
+}
+@media screen and (max-width:768px) {
+    .creator-list {
+        height: auto;
+        width: 100%;
+        padding: 50px 30px;
+        border-right: 0;
+        border-bottom: 1px solid white;
+    }
+    .creator-list {
+        width: 100%;
+        padding: 50px 30px;
+    }
+    .list-title {
+        padding: 0px 20px 0px 20px;
+    }
 }
 
 .list-title {
@@ -87,8 +143,4 @@
 
 .creator-list>ul>li:hover {
     background-color: #9a86be;
-}
-
-.creator-title-wrapper {
-    position: absolute;
 }

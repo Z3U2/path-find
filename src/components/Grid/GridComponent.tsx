@@ -88,8 +88,9 @@ export class GridComponent extends React.Component<IGridState, IGridComponentSta
          }
 
          updateWindowDimensions() {
+           let menuHeight : number = document.getElementsByClassName('menu-wrapper')[0].clientHeight;
            let width = window.innerWidth;
-           let height = window.innerHeight - 50;
+           let height = window.innerHeight - menuHeight;
            let rows = height / 45;
            let cols = width / 45;
            this.setState({
