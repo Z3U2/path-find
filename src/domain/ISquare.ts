@@ -1,7 +1,7 @@
 import ISquareDetails from "./ISquareDetails";
 
-export default interface ISquare {
-    row : number;
-    col : number;
-    details : ISquareDetails; 
+export default interface ISquare<T extends ISquareDetails = ISquareDetails> {
+    readonly row : number;
+    readonly col : number;
+    readonly details : T; 
 }
